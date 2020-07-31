@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-lime.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"  crossorigin="anonymous">
+
+
+    <title>Welcome</title>
+  </head>
+  <body>
+    <div class="w3-top">
+      <div class="w3-container-filled">
+          <div class="w3-bar w3-card-4 w3-theme" style="height:60px;">
+              <div class="w3-bar-item w3-left w3-padding-large">
+                <h3>  BLOCK-Authentication </h3>
+              </div> 
+          </div>
+      </div>
+  </div>
+    <br><br>
+  <br>
+
+  <div class="w3-display-container w3-round-xlarge  w3-theme-l2 w3-padding-32 " style="height:400px";>
+    <div class="w3-center   " style="margin-top: -49px;">
+          <h1 class=" w3-xxlarge" style="padding-top: 100px;">Welcome Aboard !!!!! </h1>
+          <h5>Your blockchain address is</h5>
+          <h3 id="showA"></h3>
+
+    </div>
+    <br>
+  </div>
+  <div style="justify-content: end;">
+    
+  </div>
+        
+    <br>
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+            console.log('loaded')
+            var accounts;
+            
+            s = window.document.getElementById('showA')
+
+            async function showacc(){
+                accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                console.log(accounts[0])
+                s.innerHTML = accounts[0];
+            }
+            
+            window.addEventListener('load', () => {
+              showacc();
+            });
+
+        });
+
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>

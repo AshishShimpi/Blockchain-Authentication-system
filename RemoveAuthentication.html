@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
+
+    <title>Admin</title>
+  </head>
+  <body><br>
+    <div  class="container">
+      <div class="row">
+        <input class="col-8 showA"   type="text">
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-5 ">
+            <button class="btn-dark" id="btnlogin">Remove user</button>
+          </div>
+      </div>
+  </div>
+    <!-- Optional JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+			console.log('loaded')
+			var accounts;
+			b = window.document.getElementById('btnlogin')
+			
+			
+			async function getAccount() {
+        s = window.document.querySelector('.showA').value
+				accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+				var URL = "http://localhost:3000/loading3?aad=" + s + "&admin=" + accounts[0] ;
+				console.log( "this is DeAuthorising account" ,s ,"URL is" ,URL);
+				window.location = URL;
+			}
+			b.addEventListener('click', () => {
+				getAccount();      
+			});
+		});
+
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" ></script>
+  </body>
+</html>
